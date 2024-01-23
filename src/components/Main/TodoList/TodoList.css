@@ -1,0 +1,35 @@
+.todo_list {
+    padding: 3% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.todo {
+    background-color: #ececec;
+    padding: 0.5% 1%;
+    width: 70%;
+    border-radius: 4px;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo span {
+    font-weight: bold;
+}
+.todo_btns button {
+    margin: 0.25em;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.todo_btns button:first-child {
+    background-color: white;
+}
+.todo_btns button:last-child {
+    color: white;
+    background-color: tomato;
+}
