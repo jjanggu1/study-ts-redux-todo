@@ -18,7 +18,7 @@ case STARTUPDATE:
             return {
                 ...state,
                 todos: state.todos.map((todo) =>
-                    todo.id === action.id ?  //수정 전
+                    todo.id === action.id ?  // 수정 전
                         { ...todo, editStatus: true } : todo
                 ),
             };
