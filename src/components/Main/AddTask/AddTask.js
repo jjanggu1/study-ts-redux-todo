@@ -4,7 +4,7 @@ function AddTask({ input, onChangeInput, onAdd }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    onAdd(input);
+    onAdd(input, "", false);
     onChangeInput('');
   }
 

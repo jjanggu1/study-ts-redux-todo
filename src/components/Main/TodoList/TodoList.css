@@ -18,6 +18,9 @@
 .todo span {
     font-weight: bold;
 }
+.todo_span {
+    cursor: pointer;
+}
 .todo_btns button {
     margin: 0.25em;
     border: none;
@@ -32,4 +35,9 @@
 .todo_btns button:last-child {
     color: white;
     background-color: tomato;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #ccc;
 }
