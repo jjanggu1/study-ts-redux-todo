@@ -5,7 +5,7 @@ Create(생성), Read(읽기), Update(갱신), Delete(삭제), Toggle(할일 완�
 ### 🛠 Trouble Shooting
 - 이슈1 : Redux DevTools를 사용해 확인 결과 액션이 실행은 되지만 id값만 전달되고 editStatus: true는 실행되지 않는 문제 발생.
 
-```
+```javascript
 // 액션 생성 함수
 export const startUpdate = (id) => ({
     type: STARTUPDATE,
