@@ -18,7 +18,7 @@ case STARTUPDATE:
             return {
                 ...state,
                 todos: state.todos.map((todo) =>
-                    todo.id === __action.id__ ? 
+                    todo.id === **action.id** ? 
                         { ...todo, editStatus: true } : todo
                 ),
             };
@@ -32,7 +32,7 @@ case STARTUPDATE:
             return {
                 ...state,
                 todos: state.todos.map((todo) =>
-                    todo.id === __action.todo.id__ ?
+                    todo.id === **action.todo.id** ?
                         { ...todo, editStatus: true } : todo
                 ),
             };
