@@ -1,11 +1,13 @@
 import React from 'react';
-const Counter = ({ number, onIncrease, onDecrease }) => {
+import { CounterProps } from 'model/Counter';
+
+const Counter: React.FC<CounterProps> = ({ number, increase, decrease }) => {
     return (
         <div>
             <h1>{number}</h1>
             <div>
-                <button onClick={onIncrease}>+1</button>
-                <button onClick={onDecrease}>-1</button>
+                <button onClick={increase}>+1</button>
+                <button onClick={decrease}>-1</button>
             </div>
         </div>
     );
