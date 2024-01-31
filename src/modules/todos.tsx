@@ -1,5 +1,57 @@
 // Ducks 패턴으로 작성
 
+type ChangeInputction = {
+    type: typeof CHANGE_INPUT,
+    input: string;
+}
+type UpdateInputAction = {
+    type: typeof UPDATE_INPUT,
+    todo: {
+        id: number,
+        text: string
+    }
+}
+type AddAction = {
+    type: typeof ADD,
+    todo: {
+        id: number,
+        text: string,
+        editStatus: boolean,
+        isDone: boolean
+    }
+}
+type StartUpdateAction = {
+    type: typeof STARTUPDATE,
+    todo: {
+        id: number
+    }
+}
+type CompleteUpdateAction = {
+    type: typeof COMPLETEUPDATE,
+    todo: {
+        id: number
+    }
+} 
+type RemoveAction = {
+    type: typeof REMOVE,
+    id: number
+}
+type IsDoneAction = {
+    type: typeof ISDONE,
+    id: number
+}
+type ActionType = ChangeInputction | UpdateInputAction | AddAction | StartUpdateAction | CompleteUpdateAction | RemoveAction | IsDoneAction;
+
+type initialStateType = {
+    input: string,
+    todos: {
+        id: number,
+        text: string,
+        editStatus: boolean,
+        isDone: false
+    }[]
+}
+
 // 액션 타입 정의
 const CHANGE_INPUT = 'todos/CHANGE_INPUT';
 const UPDATE_INPUT = 'todos/UPDATE_INPUT';
@@ -10,12 +62,12 @@ const REMOVE = 'todos/REMOVE';
 const ISDONE = 'todos/ISDONE';
 
 // 액션 생성 함수
-export const changeInput = input => ({
+export const changeInput = (input: string): ChangeInputction => ({
     type: CHANGE_INPUT,
     input
 });
 
-export const updateInput = (id, input) => ({
+export const updateInput = (id: number, input: string): UpdateInputAction => ({
     type: UPDATE_INPUT,
     todo: {
         id,
@@ -24,42 +76,42 @@ export const updateInput = (id, input) => ({
 });
 
 let id = 2;
-export const add = text => ({
+export const add = (text: string): AddAction => ({
     type: ADD,
     todo: {
         id: id++,
         text,
         editStatus: false,
-        idDone: false,
+        isDone: false,
     }
 });
 
-export const startUpdate = (id) => ({
+export const startUpdate = (id: number): StartUpdateAction => ({
     type: STARTUPDATE,
     todo: {
         id,
     }
 });
 
-export const completeUpdate = (id) => ({
+export const completeUpdate = (id: number): CompleteUpdateAction => ({
     type: COMPLETEUPDATE,
     todo: {
         id,
     }
 });
 
-export const remove = id => ({
+export const remove = (id: number): RemoveAction => ({
     type: REMOVE,
     id
 });
 
-export const isDone = id => ({
+export const isDone = (id: number): IsDoneAction => ({
     type: ISDONE,
     id
 });
 
 // 초기 상태 및 리듀서 함수
-const initialState = {
+const initialState: initialStateType = {
     input: '',
     todos: [
         {
@@ -71,7 +123,7 @@ const initialState = {
     ]
 };
 
-function todos(state = initialState, action) {
+function todos(state: initialStateType = initialState, action: ActionType) {
     switch (action.type) {
         case CHANGE_INPUT:
             return {

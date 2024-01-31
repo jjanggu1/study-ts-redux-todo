@@ -1,14 +1,15 @@
+import { TodoProps } from 'model/Todo';
 import './AddTask.css';
 
-function AddTask({ input, onChangeInput, onAdd }) {
+function AddTask({ input, onChangeInput, onAdd }: TodoProps) {
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onAdd(input, "", false);
+    onAdd(input);
     onChangeInput('');
   }
 
-  const onChange =(e) => onChangeInput(e.target.value);
+  const onChange =(e: React.ChangeEvent<HTMLInputElement>) => onChangeInput(e.target.value);
 
   return (
     <div className="add_task">
