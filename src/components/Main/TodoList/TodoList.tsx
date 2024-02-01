@@ -1,9 +1,10 @@
 
+import { TodoListProps } from 'model/Todo';
 import './TodoList.css';
 
-function TodoList({ todos, onUpdateInput, onStartUpdate, onCompleteUpdate, onRemove, onIsDone }) {
+function TodoList({ todos, onUpdateInput, onStartUpdate, onCompleteUpdate, onRemove, onIsDone }: TodoListProps) {
 
-    const onChange = (id, e) => onUpdateInput(id, e.target.value);
+    const onChange = (id: number, e: React.ChangeEvent<HTMLInputElement>) => onUpdateInput(id, e.target.value);
 
     return (
         <div className="todo_list">
