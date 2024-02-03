@@ -1,6 +1,6 @@
 // Ducks 패턴으로 작성
 
-type ChangeInputction = {
+type ChangeInputAction = {
     type: typeof CHANGE_INPUT,
     input: string;
 }
@@ -40,7 +40,7 @@ type IsDoneAction = {
     type: typeof ISDONE,
     id: number
 }
-type ActionType = ChangeInputction | UpdateInputAction | AddAction | StartUpdateAction | CompleteUpdateAction | RemoveAction | IsDoneAction;
+type ActionType = ChangeInputAction | UpdateInputAction | AddAction | StartUpdateAction | CompleteUpdateAction | RemoveAction | IsDoneAction;
 
 type initialStateType = {
     input: string,
@@ -62,7 +62,7 @@ const REMOVE = 'todos/REMOVE';
 const ISDONE = 'todos/ISDONE';
 
 // 액션 생성 함수
-export const changeInput = (input: string): ChangeInputction => ({
+export const changeInput = (input: string): ChangeInputAction => ({
     type: CHANGE_INPUT,
     input
 });
